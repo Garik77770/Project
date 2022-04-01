@@ -26,9 +26,8 @@ class Date:
 class Date_of_completion(Date):
     """Дата выполнения заказа"""
 
-    def __init__(self, date_of_completion, acceptance_date):
+    def __init__(self, acceptance_date):
         super().__init__(acceptance_date)
-        self.date_of_completion = date_of_completion
 
     def date_of_completion(self):
         import random
@@ -38,17 +37,18 @@ class Date_of_completion(Date):
         end = self.acceptance_date + timedelta(days=5)
         date_of_completion = self.acceptance_date + (end - self.acceptance_date) * random.random()
         print("Дата выполнения заказа: ", date_of_completion)
-class Status(Date):
-    """Статус заказа"""
-    def __init__(self, status, acceptance_date):
-        super().__init__(acceptance_date)
-        self.status = status
-    def st(self):
-        import datetime
-        if datetime == self.acceptance_date:
-            print("Ремонтируется: ")
 
-
+# class Status(Date):
+#     """Статус заказа"""
+#
+#     def __init__(self, status, acceptance_date):
+#         super().__init__(acceptance_date)
+#         self.status = status
+#
+#     def st(self):
+#         import datetime
+#         if datetime == self.acceptance_date:
+#             print("Ремонтируется: ")
 
 #     """
 # номер квитанции

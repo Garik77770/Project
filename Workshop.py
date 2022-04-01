@@ -57,13 +57,11 @@ from kvitancia import receip
 r = receip("")
 r.Kv()
 import sys
+
 with open("file_name.txt", 'r') as file:
     for line in file:
         if not line.isspace():
             sys.stdout.write(line)
-
-
-
 
 from kvitancia import Date
 
@@ -71,11 +69,5 @@ t = Date("")
 t.date()
 from kvitancia import Date_of_completion
 
-d = Date_of_completion("", "")
+d = Date_of_completion("")
 d.date_of_completion()
-
-from kvitancia import Status
-S = Status("","")
-S.st()
-
-
