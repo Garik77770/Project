@@ -1,14 +1,15 @@
-import random
-
-
-class receip:
+class Receip:
     """Номер квитанции"""
+    count = 1
 
     def __init__(self, receipt):
         self.receipt = receipt
+        self.rec = Receip.count
+        Receip.count += 1
 
-    def Kv(self):
-        print("Квитанция №: ".format(self.receipt), format(random.randint(1, 1000)))
+    def receiptt(self):
+        with open('workshop.csv', 'a+') as file:
+            print("Квитанция №:", self.rec, file=file)
 
 
 class Date:
@@ -19,36 +20,38 @@ class Date:
 
     def date(self):
         import datetime
-        self.acceptance_date = datetime.datetime.now()
-        print("Дата приёмки: ", self.acceptance_date.__str__())
+        with open('workshop.csv', 'a') as file:
+            self.acceptance_date = datetime.datetime.now()
+            print("Дата приёмки: ", self.acceptance_date.__str__(), file=file)
 
-
-class Date_of_completion(Date):
     """Дата выполнения заказа"""
-
-    def __init__(self, acceptance_date):
-        super().__init__(acceptance_date)
 
     def date_of_completion(self):
         import random
         from datetime import datetime, timedelta
+        with open('workshop.csv', 'a') as file:
+            self.acceptance_date = datetime.now()
+            end = self.acceptance_date + timedelta(days=5)
+            date_of_completion = self.acceptance_date + (end - self.acceptance_date) * random.random()
+            print("Дата выполнения заказа: ", date_of_completion, file=file)
 
-        self.acceptance_date = datetime.now()
-        end = self.acceptance_date + timedelta(days=5)
-        date_of_completion = self.acceptance_date + (end - self.acceptance_date) * random.random()
-        print("Дата выполнения заказа: ", date_of_completion)
 
-# class Status(Date):
-#     """Статус заказа"""
-#
-#     def __init__(self, status, acceptance_date):
-#         super().__init__(acceptance_date)
-#         self.status = status
-#
-#     def st(self):
-#         import datetime
-#         if datetime == self.acceptance_date:
-#             print("Ремонтируется: ")
+class Status(Date):
+    """Статус заказа"""
+
+    def __init__(self, status, acceptance_date):
+        super().__init__(acceptance_date)
+        self.status = status
+
+    def st(self):
+        with open('workshop.csv', 'a') as file:
+            self.status = ["Ремонтируется", "Готово", "Выдано клиенту"]
+            if self.acceptance_date != self.status[0]:
+                print("Статус: Ремонтируется", file=file)
+            elif self.acceptance_date == self.status[1]:
+                print("Статус: Готово", file=file)
+            elif self.status[2]:
+                print("Статус: Выдано клиенту", file=file)
 
 #     """
 # номер квитанции

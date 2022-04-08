@@ -6,7 +6,7 @@ class Tv():
         self.breakdown_description = breakdown_description
         self.screen_diagonal = screen_diagonal
 
-    def parTv(self):
+    def tv(self):
         with open('file_name.txt', 'a') as file:
             self.stamp = input("Марка телевизора: ")
             print('Марка телевизора: ', self.stamp, file=file)
@@ -16,7 +16,7 @@ class Tv():
             print('Описание поломки: ', self.breakdown_description, file=file)
 
 
-class laptop(Tv):
+class Laptop(Tv):
     """О ноутбуке, который сдают в ремонт"""
 
     def __init__(self, stamp, operating_system, year_of_release, breakdown_description):
@@ -24,7 +24,7 @@ class laptop(Tv):
         self.operating_system = operating_system
         self.year_of_release = year_of_release
 
-    def parLap(self):
+    def laptop(self):
         with open('file_name.txt', 'a') as file:
             self.stamp = input("Марка ноутбука: ")
             print('Марка ноутбука: ', self.stamp, file=file)
@@ -36,13 +36,13 @@ class laptop(Tv):
             print('Описание поломки: ', self.breakdown_description, file=file)
 
 
-class telephon(laptop):
+class Telephon(Laptop):
     """ О телефоне, который сдают в ремонт"""
 
     def __init__(self, stamp, operating_system, breakdown_description):
         super().__init__(self, stamp, operating_system, breakdown_description)
 
-    def parTel(self):
+    def telephone(self):
         with open('file_name.txt', 'a') as file:
             self.stamp = input("Марка телефона: ")
             print('Марка телефона: ', self.stamp, file=file)
