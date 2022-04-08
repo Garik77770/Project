@@ -5,7 +5,7 @@ class Name:
         self.Name = Name
 
     def nam(self):
-        with open('workshop.csv', 'a+') as file:
+        with open('workshop.py', 'a+') as file:
             self.Name = input("Введите ФИО: ")
             print('FIO: ', self.Name, file=file)
 
@@ -27,7 +27,7 @@ class Vibor:
 
     def vib(self):
 
-        with open('workshop.csv', 'a+') as file:
+        with open('workshop.py', 'a+') as file:
             self.Vibor = input("Напишите ваш выбор:(Laptop, Telephon, Tv) ")
             print('Тип изделия: ', self.Vibor, file=file)
             self.product_type = ['Laptop', 'Telephon', 'Tv']

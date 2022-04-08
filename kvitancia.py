@@ -8,7 +8,7 @@ class Receip:
         Receip.count += 1
 
     def receiptt(self):
-        with open('workshop.csv', 'a+') as file:
+        with open('workshop.py', 'a+') as file:
             print("Квитанция №:", self.rec, file=file)
 
 
@@ -20,7 +20,7 @@ class Date:
 
     def date(self):
         import datetime
-        with open('workshop.csv', 'a') as file:
+        with open('workshop.py', 'a') as file:
             self.acceptance_date = datetime.datetime.now()
             print("Дата приёмки: ", self.acceptance_date.__str__(), file=file)
 
@@ -29,7 +29,7 @@ class Date:
     def date_of_completion(self):
         import random
         from datetime import datetime, timedelta
-        with open('workshop.csv', 'a') as file:
+        with open('workshop.py', 'a') as file:
             self.acceptance_date = datetime.now()
             end = self.acceptance_date + timedelta(days=5)
             date_of_completion = self.acceptance_date + (end - self.acceptance_date) * random.random()
@@ -44,7 +44,7 @@ class Status(Date):
         self.status = status
 
     def st(self):
-        with open('workshop.csv', 'a') as file:
+        with open('workshop.py', 'a') as file:
             self.status = ["Ремонтируется", "Готово", "Выдано клиенту"]
             if self.acceptance_date != self.status[0]:
                 print("Статус: Ремонтируется", file=file)
