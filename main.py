@@ -7,7 +7,7 @@ class Name:
     def nam(self):
         with open('workshop.py', 'a+') as file:
             self.Name = input("Введите ФИО: ")
-            print('FIO: ', self.Name, file=file)
+            print('Фамилия Имя Отчество: ', self.Name, file=file)
 
 
 from kvitancia import Receip
