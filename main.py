@@ -1,3 +1,11 @@
+# import sys
+
+from receip import Receip
+from technic import Laptop
+from technic import Telephon
+from technic import Tv
+
+
 class Name:
     """ Ввод ФИО человека сдающего технику"""
 
@@ -5,17 +13,15 @@ class Name:
         self.Name = Name
 
     def nam(self):
-        with open('workshop.py', 'a+') as file:
-            self.Name = input("Введите ФИО: ")
-            print('Фамилия Имя Отчество: ', self.Name, file=file)
+        # with open('workshop.py', 'a+') as file:
+        self.Name = input("Введите ФИО: ")
+
+        return 'Фамилия Имя Отчество:', self.Name
+    # print('Фамилия Имя Отчество: ', self.Name, file=file)
 
 
-from kvitancia import Receip
-
-r = Receip("")
-r.receiptt()
-t = Name('')
-t.nam()
+n = Name('')
+n.nam()
 
 
 class Vibor:
@@ -27,26 +33,25 @@ class Vibor:
 
     def vib(self):
 
-        with open('workshop.py', 'a+') as file:
-            self.Vibor = input("Напишите ваш выбор:(Laptop, Telephon, Tv) ")
-            print('Тип изделия: ', self.Vibor, file=file)
-            self.product_type = ['Laptop', 'Telephon', 'Tv']
+        # with open('workshop.py', 'a+') as file:
+        self.Vibor = input("Напишите ваш выбор:(Laptop, Telephon, Tv) ")
+
+        # print('Тип изделия: ', self.Vibor, file=file)
+
+        self.product_type = ['Laptop', 'Telephon', 'Tv']
 
         if self.Vibor == self.product_type[0]:
-            from texnica import Laptop
 
             l = Laptop("", "", "", "")
             l.laptop()
 
 
         elif self.Vibor == self.product_type[1]:
-            from texnica import Telephon
 
             tel = Telephon("", "", "")
             tel.telephone()
 
         elif self.Vibor == self.product_type[2]:
-            from texnica import Tv
 
             T = Tv("", "", "")
             T.tv()
@@ -54,22 +59,20 @@ class Vibor:
 
 V = Vibor('', '')
 V.vib()
+r = Receip("", "", "")
+r.receiptt()
+print('Тип изделия:', V.Vibor )
+# with open("characteristic.txt", 'r') as file:
+#     for line in file:
+#         if not line.isspace():
+#             sys.stdout.write(line)
 
-import sys
-
-with open("file_name.txt", 'r') as file:
-    for line in file:
-        if not line.isspace():
-            sys.stdout.write(line)
-
-from kvitancia import Date
-
-t = Date("")
+t = Receip("", "", "")
 t.date()
 
-d = Date("")
+d = Receip("", "", "")
 d.date_of_completion()
-from kvitancia import Status
+print('Фамилия Имя Отчество:', n.Name)
 
-s = Status("", "")
+s = Receip("", "", "")
 s.st()
