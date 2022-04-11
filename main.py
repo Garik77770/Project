@@ -1,6 +1,6 @@
 # import sys
 
-from receip import Receip
+from receipt import Receip
 from technic import Laptop
 from technic import Telephon
 from technic import Tv
