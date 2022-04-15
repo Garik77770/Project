@@ -1,52 +1,50 @@
 import datetime
 import random
 from datetime import datetime, timedelta
+from technic import Laptop, Phone, Tv
+from technic import phone_features, tv_features, laptop_features
 
-class Receip:
-    """Номер квитанции"""
+
+class Receipt:
+    """Номер квитанции и дата приемки"""
 
     count = 1
 
+    def __init__(self, receipt, acceptance_date, status, name, choice):
+        self.receipt = Receipt.count
+        self.acceptance_date = datetime.now()
+        self.status = ['ремонтируется', 'готово', 'выдано клиенту']
+        Receipt.count += 1
+        self.name = input("Фамилия Имя Отчество: ")
+        self.choice = input("Напишите ваш выбор:(Laptop, Telephon, Tv) ")
 
-    def __init__(self, receipt, acceptance_date, status):
-        self.receipt = receipt
-        self.acceptance_date = acceptance_date
-        self.status = status
-        self.rec = Receip.count
-        Receip.count += 1
 
-    def receiptt(self):
-        #with open('workshop.py', 'a+') as file:
-            print("Квитанция №:", self.rec)
+    def __str__(self):
+        product_type = ['Laptop', 'Telephon', 'Tv']
 
-    """Дата приёмки"""
+        if self.choice == product_type[0]:
 
-    def date(self):
-        #with open('workshop.py', 'a') as file:
-            self.acceptance_date = datetime.now()
-            print("Дата приёмки: ", self.acceptance_date.__str__())
+            print(Laptop(*laptop_features()))
 
-    """Дата выполнения заказа"""
 
-    def date_of_completion(self):
+        elif self.choice == product_type[1]:
 
-       # with open('workshop.py', 'a') as file:
-            self.acceptance_date = datetime.now()
-            end = self.acceptance_date + timedelta(days=5)
-            date_of_completion = self.acceptance_date + (end - self.acceptance_date) * random.random()
-            print("Дата выполнения заказа: ", date_of_completion)
+            print(Phone(*phone_features()))
 
-    """Статус заказа"""
+        elif self.choice == product_type[2]:
+            print(Tv(*tv_features()))
+        end = self.acceptance_date + timedelta(days=5)
+        date_of_completion = self.acceptance_date + (end - self.acceptance_date) * random.random()
+        return f"Квитанция №: {self.receipt}\n" \
+               f"Тип изделия:{self.choice}\n" \
+               f"Дата приёмки: {self.acceptance_date}\n" \
+               f"Дата выполнения заказа: {date_of_completion}\n" \
+               f"Фамилия Имя Отчество: {self.name}\n" \
+               f"Статус:{random.choice(self.status)}\n"
 
-    def st(self):
-        #with open('workshop.py', 'a') as file:
-            self.status = ["Ремонтируется", "Готово", "Выдано клиенту"]
-            if self.acceptance_date != self.status[0]:
-                print("Статус: Ремонтируется")
-            elif self.acceptance_date == self.status[1]:
-                print("Статус: Готово")
-            elif self.status[2]:
-                print("Статус: Выдано клиенту")
+
+
+
 
 #     """
 # номер квитанции
